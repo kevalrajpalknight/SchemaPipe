@@ -1,0 +1,13 @@
+[project]
+name = "schemapipe"
+version = "0.1.0"
+description = "A zero-code, plug-and-play Retrieval-Augmented Generation (RAG) pipeline that transforms unstructured documents (PDFs) into perfectly formatted JSON data based on a user-defined schema. Stop building custom RAG pipelines—just define your JSON structure and get your answers."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "alembic>=1.16.5",
+    "fastapi[standard]>=0.117.1",
+    "pydantic>=2.11.9",
+    "pydantic-settings>=2.11.0",
+    "structlog>=25.4.0",
+]
