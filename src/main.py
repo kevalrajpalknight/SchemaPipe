@@ -2,7 +2,8 @@ import structlog
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from core.config import settings
+import src.models  # noqa: F401
+from src.core.config import settings
 
 # Configure structlog for structured logging
 structlog.configure(

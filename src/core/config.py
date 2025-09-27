@@ -1,6 +1,13 @@
+import enum
 from typing import List
 
 from pydantic_settings import BaseSettings
+
+
+class Environment(enum.Enum):
+    DEVELOPMENT = "development"
+    PRODUCTION = "production"
+    TEST = "test"
 
 
 class Settings(BaseSettings):
@@ -14,13 +21,13 @@ class Settings(BaseSettings):
 
     @property
     def database_url(self) -> str:
-        return f"postgresql://{self.database_user}:{self.database_password}\
-            @{self.database_host}:{self.database_port}/{self.database_name}"
+        return f"postgresql+asyncpg://{self.database_user}:{self.database_password}@{self.database_host}:{self.database_port}/{self.database_name}"
 
     # Security settings
     secret_key: str = "your_secret_key"
     algorithm: str = "HS256"
     access_token_expire_minutes: int = 30
+    hash_salt_length: int = 8
 
     # CORS settings
     cors_origins: str | List[str] = []
@@ -40,7 +47,9 @@ class Settings(BaseSettings):
     log_format: str = "json"  # Options: "json", "plain"
 
     # Environment
-    environment: str = "development"  # Options: "development", "production"
+    environment: Environment = (
+        Environment.DEVELOPMENT
+    )  # Options: "development", "production"
 
     # OpenAI Settings
     openai_api_key: str = "your_openai_api_key"
