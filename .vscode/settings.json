@@ -1,0 +1,17 @@
+{
+  "isort.check": true,
+  "isort.severity": {
+    "W": "Warning",
+    "E": "Hint"
+  },
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit"
+  },
+  "editor.formatOnSave": true,
+  "python.analysis.typeCheckingMode": "basic",
+  
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+  },
+  "python.analysis.ignore": ["alembic"]
+}
